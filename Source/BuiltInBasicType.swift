@@ -39,6 +39,7 @@ extension IntegerPropertyProtocol {
         case let str as String:
             return Self(str, radix: 10)
         case let num as NSNumber:
+            
             return Self(num)
         default:
             return nil
@@ -136,7 +137,8 @@ extension String: _BuiltInBasicType {
                     return "false"
                 }
             }
-            return formatter.string(from: num)
+            let number = num as NSNumber
+            return number.stringValue
         case _ as NSNull:
             return nil
         default:
